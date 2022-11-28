@@ -1,7 +1,7 @@
 ### Dynamic-Queue in C
 
-This is a dynamic queue implementation in C. It is able to store any kind of data. Note that if you pass pointer as type for the queue, you will need to handle the dealocation of the element each time you dequeue one. 
-Furthermore the queue is dynamic so it can grow...
+This is a dynamic queue implementation in C. It is able to store any kind of data. Note that if you pass pointer as type for the queue, you will need to handle the dealocation of the element each time you dequeue one.<br/>
+Furthermore the queue is dynamic so it can grow.
 
 ## Folder-organisation
 
@@ -18,7 +18,7 @@ In the program, you will be able to use multiple commands. They will be presente
 ```c
 int main() {
   queue* q = create_queue();
-  queue_free(q); ///Need to be call to dealocate the memory !!!
+  queue_free(q, NULL); ///Need to be call to dealocate the memory !!!
   return 0;
 }
 
@@ -28,7 +28,7 @@ int main() {
 ```c
 int main() {
   queue* q = queue_create_from_list((int[]){0,1,2,3,4,5,6,7,8,9}, 10, sizeof(int));
-  queue_free(q); ///Need to be call to dealocate the memory !!!
+  queue_free(q, NULL); ///Need to be call to dealocate the memory !!!
   return 0;
 }
 ```
@@ -42,7 +42,7 @@ You need to call the function `queue_free(queue* q)` to dealocate memory at the 
 ```c
 int main() {
   queue* q = queue_create();
-  queue_free(q); ///Need to be call to dealocate the memory !!!
+  queue_free(q, NULL); ///Need to be call to dealocate the memory !!!
   return 0;
 }
 ```
@@ -58,7 +58,7 @@ int main() {
   for(int i=0; i<len; i++){
     free(queue_pop(q));
   }
-  queue_free(q); ///Call it to fully dealocate the q pointer.
+  queue_free(q, NULL); ///Call it to fully dealocate the q pointer.
   return 0;
 }
 ```

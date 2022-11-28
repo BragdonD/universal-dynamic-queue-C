@@ -20,6 +20,6 @@ void* queue_front(queue *q);
 void* queue_end(queue *q);
 void queue_swap(queue* q1, queue* q2);
 size_t queue_size(queue* q);
-void queue_free(queue* q);
+void queue_free(queue* q, void (*free_data)(void*));
 
 #endif
